@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>用户表单</title>
+</head>
+<body>
+    <div th:replace="~{common/header::header}"></div>
+    <h4 th:text="${userModel.title}">
+        渡西湖
+    </h4>
+
+    <form action="/user" th:action="@{/user}" method="post" th:object="${userModel.user}">
+        <input type="hidden" name="id" th:value="${user.id}"/>
+        名字<br/>
+        <input type="text" name="name" th:value="${user.name}"/>
+        <br/>
+        年龄<br/>
+        <input type="number" name="age" th:value="${user.age}"/>
+        <br/>
+        <input type="submit" value="提交"/>
+    </form>
+    <div th:replace="~{common/footer::footer}"></div>
+</body>
